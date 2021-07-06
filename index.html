@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel = "stylesheet">
+        <link rel = "icon" href = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F72%2FEo_circle_light-blue_letter-m.svg%2F1200px-Eo_circle_light-blue_letter-m.svg.png&f=1&nofb=1" type = "image/x-icon"> 
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Home - MaxPark</title>
+    </head>
+    <body>
+        <nav>
+            <!-- <button id = "nav"><i class = "fas fa-bars fa-lg"></i></button> -->
+            <label id = "title">MaxPark</label>
+            <button id = "worker" onclick = "password()">For employees</button>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id = "home">
+            <h2>About us</h2>
+            <p id = "des">MaxPark is a park created by two friends at Adams Ricci Park. All the rides are free and we are always working to add more rides. Look at the information below to learn about the rides.</p>
+            <br>
+            <hr>
+            <br>
+            <h2>The Swingster</h2>
+            <video controls controlsList = "nodownload">
+                <source src = "https://www.dropbox.com/s/32rk6lxq9gz8oyi/vid_20210624_081616570.mp4?raw=1" />
+            </video>
+            <p id = "des">Come to a ride of twists and pushes! The estimated ride time is around 1 minute. Want to ride again? Just get back in line! But if there's no line, feel free to keep riding.</p>
+            <br>
+            <hr style = "width:100px;">
+            <br>
+            <h2>TBS</h2>
+            <video controls controlsList = "nodownload">
+                <source src = "https://www.dropbox.com/s/z39sprw3ued7xme/vid_20210624_081839646.mp4?raw=1" />
+            </video>
+            <p id = "des">Get pushed and pulled on this ride. Ride time is around one minute. Want to get on again? Just get back in line! But if there's no line you could ride again!</p>
+        </div>
+        <div id = "passscreen">
+            <h2>Enter password to continue</h2>
+            <input placeholder = "PIN" id = "guess" inputmode = "numeric" type = "password" />
+            <button onclick = "go()" id = "go"><i class = "fas fa-arrow-right fa-lg"></i></button>
+        </div>
+        <div id = "employee">
+            <div id = "ehome">
+                <h2>Employee homepage</h2>
+                <button id = "button" onclick = "learn()">Announcments</button>
+                <button id = "button" onclick = "chat();chatname()">Chat</button>
+            </div>
+            <div id = "announcments">
+                <button id = "worker" style = "float:left;width:100px;" onclick = "hide()"><i class = "fas fa-times fa-lg"></i><label style = "margin-left:5px;font-size:16px;cursor:pointer;">Close</label></button>
+                <br>
+                <br>
+                <br>
+                <h2>Up and running</h2>
+                <p id = "des">The website is up and running! Tell me if you have any issues with the site.</p>
+            </div>
+            <div id = "namec">
+                <h2>Enter name to start chatting</h2>
+                <input placeholder = "Name" maxlength = "32" id = "name" />
+                <button id = "go" onclick = "chat2()"><i class = "fas fa-arrow-right fa-lg"></i></button>
+            </div>
+            <div id = "chat">
+                <nav style = "position:fixed;bottom:0;">
+                    <button id = "worker" style = "float:left;width:100px;" onclick = "hide()"><i class = "fas fa-times fa-lg"></i><label style = "margin-left:5px;font-size:16px;cursor:pointer;">Close</label></button>
+                    <div id = "div1">
+                        
+                    </div>
+                    <input placeholder = "Chat text here..." style = "margin-top:0px;" id = "text" />
+                    <button id = "go" style = "margin-top:10px;" onclick = "send()"><i class = "fas fa-paper-plane fa-lg"></i></button>
+                </nav>
+            </div>
+        </div>
+        <script>           
+            function chat () {
+                document.getElementById ("ehome").style.display = "none";
+                document.getElementById ("namec").style.display = "block";
+                document.title == "Enter name - MaxPark";
+            }
+
+            function chat2 () {
+                document.getElementById ("namec").style.display = "none";
+                document.getElementById ("chat").style.display = "block";
+                document.title == "Enter name - MaxPark";
+            }
+            
+            function password () {
+                document.getElementById ("home").style.display = "none";
+                document.getElementById ("passscreen").style.display = "block";
+                document.title == "Enter password - MaxPark";
+            }
+
+            function go () {
+                let password = "284116";
+                let guess = document.getElementById ("guess").value;
+
+                if (password == guess) {
+                    document.getElementById ("passscreen").style.display = "none";
+                    document.getElementById ("employee").style.display = "block";
+                    document.title == "Employee home - MaxPark";
+                } else {
+                    alert ("WRONG PIN");
+                }
+            }
+
+            function learn () {
+                document.getElementById ("announcments").style.display = "block";
+                document.getElementById ("ehome").style.display = "none";
+                document.title == "Announcments - MaxPark";
+            }
+
+            function hide () {
+                document.getElementById ("announcments").style.display = "none";
+                document.getElementById ("chat").style.display = "none";
+                document.getElementById ("ehome").style.display = "block";
+                document.title == "Employee home - MaxPark";
+            }
+            
+            function send () {  
+                var name = document.getElementById ("name").value;                  
+                var btn = document.createElement("p");
+                btn.innerHTML = name + ": " + document.getElementById ("text").value;                              document.body.appendChild(btn);  
+                btn.style = "text-align:left;margin-left:10px;";
+                document.getElementById ("text").value = null;
+
+            }
+        </script>
+        <style>
+            * {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family:"Montserrat", sans-serif;
+    text-align:center;
+}
+
+#att1 {
+    color:red;
+    display:none;
+}
+
+nav {
+    background-color:whitesmoke;
+    width:100%;
+    height:50px;
+    position:fixed;
+}
+
+#nav {
+    width:30px;
+    height:30px;
+    background-color:transparent;
+    border:transparent;
+    border-radius:2px;
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+#chat {
+    display:none;
+}
+
+#title {
+    font-size:20px;
+    position:fixed;
+    left:10px;
+    top:12.5px;
+}
+
+#des {
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+hr {
+    width:95%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:gainsboro;
+    border-radius:5px;
+    border:gainsboro solid 1px;
+}
+
+#worker {
+    width:110px;
+    height:30px;
+    background-color:transparent;
+    border:transparent;
+    border-radius:2px;
+    float:right;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+#nav:hover {
+    background-color:gainsboro;
+}
+
+#nav:active {
+    background-color:lightgray;
+}
+
+#worker:hover {
+    background-color:gainsboro;
+}
+
+#worker:active {
+    background-color:lightgray;
+}
+
+button, input, video {
+    transition:all 0.25s;
+    outline:none;
+    font-family:"Montserrat", sans-serif;
+}
+
+button {
+    cursor:pointer;
+}
+
+#button {
+    width:100%;
+    height:50px;
+    background-color:transparent;
+    border:transparent;
+    text-align:left;
+    text-indent:10px;
+}
+
+#button:hover {
+    background-color:gainsboro;
+}
+
+#button:active {
+    background-color:lightgray;
+}
+
+#passscreen, #employee, #announcments, #namec {
+    display:none;
+}
+
+#go {
+    width:30px;
+    height:30px;
+    background-color:cyan;
+    border:transparent;
+    border-radius:50%;
+}
+
+#go:hover {
+    background-color:#82EEFD;
+}
+
+#go:active {
+    background-color:skyblue;
+}
+
+input {
+    width:200px;
+    height:30px;
+    background-color:transparent;
+    border:transparent;
+    border-bottom:black solid 1px;
+}
+
+video {
+    width:350px;
+    height:200px;
+    border:gainsboro solid 1px;
+    border-radius:5px;
+}
+        </style>
+    </body>
+</html>
