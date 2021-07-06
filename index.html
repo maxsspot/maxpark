@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" rel = "stylesheet">
         <link rel = "icon" href = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F72%2FEo_circle_light-blue_letter-m.svg%2F1200px-Eo_circle_light-blue_letter-m.svg.png&f=1&nofb=1" type = "image/x-icon"> 
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -76,19 +77,19 @@
             function chat () {
                 document.getElementById ("ehome").style.display = "none";
                 document.getElementById ("namec").style.display = "block";
-                document.title == "Enter name - MaxPark";
+                document.title === "Enter name - MaxPark";
             }
 
             function chat2 () {
                 document.getElementById ("namec").style.display = "none";
                 document.getElementById ("chat").style.display = "block";
-                document.title == "Enter name - MaxPark";
+                document.title === "Enter name - MaxPark";
             }
             
             function password () {
                 document.getElementById ("home").style.display = "none";
                 document.getElementById ("passscreen").style.display = "block";
-                document.title == "Enter password - MaxPark";
+                document.title === "Enter password - MaxPark";
             }
 
             function go () {
@@ -98,7 +99,7 @@
                 if (password == guess) {
                     document.getElementById ("passscreen").style.display = "none";
                     document.getElementById ("employee").style.display = "block";
-                    document.title == "Employee home - MaxPark";
+                    document.title === "Employee home - MaxPark";
                 } else {
                     alert ("WRONG PIN");
                 }
@@ -107,14 +108,14 @@
             function learn () {
                 document.getElementById ("announcments").style.display = "block";
                 document.getElementById ("ehome").style.display = "none";
-                document.title == "Announcments - MaxPark";
+                document.title === "Announcments - MaxPark";
             }
 
             function hide () {
                 document.getElementById ("announcments").style.display = "none";
                 document.getElementById ("chat").style.display = "none";
                 document.getElementById ("ehome").style.display = "block";
-                document.title == "Employee home - MaxPark";
+                document.title === "Employee home - MaxPark";
             }
             
             function send () {  
@@ -123,7 +124,7 @@
                 btn.innerHTML = name + ": " + document.getElementById ("text").value;                              document.body.appendChild(btn);  
                 btn.style = "text-align:left;margin-left:10px;";
                 document.getElementById ("text").value = null;
-
+                location.reload();
             }
         </script>
         <style>
